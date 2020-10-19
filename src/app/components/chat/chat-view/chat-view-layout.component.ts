@@ -136,6 +136,7 @@ export class ChatViewLayoutComponent implements OnInit, OnDestroy {
   }
 
   onLeaveChatButtonClick() {
+    this.message.createMessage('info', `You have left the chat: ${this.chatRoom.name}`);
     this.router.navigate(['/chat'])
   }
 

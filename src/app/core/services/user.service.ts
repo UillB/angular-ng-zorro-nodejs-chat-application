@@ -27,6 +27,7 @@ export class UserService {
   /**
    * Executes HTTP GET request in order to fetch the users
    * from backend
+   * @HTTPRequestType GET
    */
   getUsers(): Observable<User[]> {
     this.http.get<User[]>(this.usersBaseUrl).subscribe(data => {
@@ -39,6 +40,7 @@ export class UserService {
    * Executes HTTP POST request in order to
    * create the new Application User
    * @param user {User}
+   * @HTTPRequestType POST
    */
   registerUser(user: User): Observable<any> {
     return this.http.post<User>(this.usersBaseUrl, user);

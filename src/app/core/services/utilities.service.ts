@@ -3,9 +3,9 @@ import { Injectable, Inject } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 
 /**
- * Utility service which for now
- * mainly determines the application server URL for making the HTTP requests.
- * Can be expandable
+ * Global Utility service which for now mainly determines
+ * the application server URL for making the HTTP requests.
+ * Should be expandable in the future
  */
 export class UtilitiesService {
   constructor(@Inject('Window') private window: Window) { }

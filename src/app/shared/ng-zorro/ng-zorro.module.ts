@@ -17,6 +17,7 @@ import {NzAlertModule} from "ng-zorro-antd/alert";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 import {NzToolTipModule} from "ng-zorro-antd/tooltip";
+import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 
 
 
@@ -40,7 +41,8 @@ import {NzToolTipModule} from "ng-zorro-antd/tooltip";
     NzAlertModule,
     NzTypographyModule,
     NzPageHeaderModule,
-    NzToolTipModule
+    NzToolTipModule,
+    NzPopconfirmModule
   ],
   exports: [
     CommonModule,
@@ -60,7 +62,8 @@ import {NzToolTipModule} from "ng-zorro-antd/tooltip";
     NzAlertModule,
     NzTypographyModule,
     NzPageHeaderModule,
-    NzToolTipModule
+    NzToolTipModule,
+    NzPopconfirmModule
   ]
 })
 export class NgZorroModule { }

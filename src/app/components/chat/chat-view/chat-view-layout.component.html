@@ -8,7 +8,18 @@
         {{user.name}}
       </li>
     </ul>
-    <button (click)="onLeaveChatButtonClick()" class="leave-chat-button" nz-button nzType="default" nzDanger>Leave this chat</button>
+    <button
+      class="leave-chat-button"
+      nz-button
+      nzType="default"
+      nzDanger
+      nz-popconfirm
+      nzPopconfirmTitle="Are you sure about leaving this chat?"
+      nzPopconfirmPlacement="rightTop"
+      nzOkText="Leave"
+      (nzOnConfirm)="onLeaveChatButtonClick()">
+      Leave this chat
+    </button>
   </nz-sider>
   <nz-layout>
     <nz-content>
