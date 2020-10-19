@@ -125,3 +125,7 @@ Open [http://localhost:4200](http://localhost:4200) to launch the application in
 # CSS
 * SCSS
 
+# Possible issues
+* If you cloned the UI code and launched it with the <b>ng serve --open<b> command, then, after very first launch, the application might reload for every interval of time even though no code changes were done. Please stop the terminal process, and <b>simply re-run the application again</b> with the same command <b>ng serve --open</b>
+  
+
