@@ -1,0 +1,11 @@
+<div nz-row [nzGutter]="8">
+  <div nz-col [nzSpan]="8" *ngFor="let chat of chats">
+    <nz-card nzTitle="{{chat.name}}" [nzExtra]="joinButtonTpl">
+      Chat ID: <span>{{chat.id}}</span>
+      <h3>Some chat description here...</h3>
+    </nz-card>
+    <ng-template #joinButtonTpl>
+      <a routerLink="/chat/chatroom/{{chat.id}}" (click)="onUserChatJoin(chat.id)">Join</a>
+    </ng-template>
+  </div>
+</div>

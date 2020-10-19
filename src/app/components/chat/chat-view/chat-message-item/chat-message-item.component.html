@@ -1,0 +1,13 @@
+<ul *ngIf="chatMessages && chatMessages.length else noChatDataTpl" class="chat-message-container">
+  <li *ngFor="let chatMessage of chatMessages" [ngClass]="chatMessage.userId === this.accountService.user.id ? 'user-message-content' : 'external-user-message-content'">
+    <app-avatar [message]="chatMessage"></app-avatar>
+    <div class="user-name-message-wrapper">
+      <p class="user-username">{{chatMessage.userName}}</p>
+      <p class="user-message">{{chatMessage.text}}</p>
+    </div>
+  </li>
+</ul>
+
+<ng-template #noChatDataTpl>
+  <div>No data yet.</div>
+</ng-template>

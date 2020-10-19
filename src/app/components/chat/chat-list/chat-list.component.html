@@ -1,0 +1,38 @@
+<div class="site-page-header-ghost-wrapper">
+  <nz-page-header [nzGhost]="false">
+    <nz-page-header-title>Title</nz-page-header-title>
+    <nz-page-header-extra>
+      <button nz-button nzType="primary" [disabled]="chatCreationMode" (click)="toggleChatCreationMode()">Create new chat</button>
+      <button nz-button nzType="primary" (click)="cancelChatCreationMode()" *ngIf="chatCreationMode">Cancel</button>
+      <button nz-button nzType="primary" (click)="onChatCreationSave()" *ngIf="chatCreationMode" [disabled]="!validateChatCreationForm.valid">
+        Save
+      </button>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+      <div *ngIf="chatCreationMode">
+        <form nz-form [nzLayout]="'vertical'" [formGroup]="validateChatCreationForm" (ngSubmit)="onChatCreationSave()">
+          <nz-form-item>
+            <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="chatNameErrorTpl">
+              <input type="text" nz-input placeholder="Enter the chat name (try to use an existing chat name)" formControlName="newChatName"/>
+              <ng-template #chatNameErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  Please type the new chat name.
+                </ng-container>
+                <ng-container *ngIf="control.hasError('chatExists')">
+                  The chat with specified name is already exist. Please choose another name.
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+      <div *ngIf="chats.length else loading">
+        <app-chat-list-item [chats]="chats"></app-chat-list-item>
+      </div>
+      <ng-template #loading>
+        <app-loader></app-loader>
+      </ng-template>
+    </nz-page-header-content>
+  </nz-page-header>
+</div>
+

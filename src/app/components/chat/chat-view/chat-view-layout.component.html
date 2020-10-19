@@ -1,0 +1,26 @@
+<nz-layout class="chat-container-wrapper" *ngIf="chatRoom else loading">
+  <nz-sider>
+    <div class="sider-wrapper"></div>
+    <p class="chat-name">Chat Name: <span nz-typography><strong>{{chatRoom.name}}</strong></span></p>
+    <ul class="users-list-wrapper" *ngIf="chatUsers.length">
+      <li *ngFor="let user of chatUsers"
+          [ngClass]="[user.name === this.accountService.user?.name? 'user-name': 'external-user-name']">
+        {{user.name}}
+      </li>
+    </ul>
+    <button (click)="onLeaveChatButtonClick()" class="leave-chat-button" nz-button nzType="default" nzDanger>Leave this chat</button>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <div class="chat-content">
+        <app-chat-message-item></app-chat-message-item>
+      </div>
+      <app-chat-user-area [userMessage]="userMessage"
+                          (userMessageSend)="onUserMessageSendButtonClicked()"
+                          (userValueChange)="onUserValueChanged($event)"></app-chat-user-area>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="user-message-area">
+  <input nz-input
+         placeholder="Type your message"
+         [(ngModel)]="userMessage"
+         (ngModelChange)="onUserValueChange($event)"
+         (keyup.enter)="onUserMessageSendButtonClick()"
+  />
+  <button nz-button
+          nzType="primary"
+          class="user-message-send-button"
+          nzBlock (click)="onUserMessageSendButtonClick()" [disabled]="!userMessage">Send
+  </button>
+</div>

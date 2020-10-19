@@ -1,0 +1,64 @@
+.chat-message-container {
+  padding: 0;
+  margin-top: 0em;
+  list-style: none;
+
+  li {
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+
+    .user-username, .user-message {
+      margin-left: 10px;
+    }
+
+    .user-name-message-wrapper {
+      max-width: 50%;
+      min-width: 50%;
+      overflow: hidden;
+      word-break: break-all;
+      border: 1px solid gainsboro;
+      border-radius: 15px;
+      margin: 0 12px;
+      padding: 12px;
+      box-shadow: 0px 0px 5px gainsboro;
+    }
+
+    .user-username {
+      font-weight: bold;
+    }
+  }
+
+  .user-message-content {
+    .user-name-message-wrapper {
+      text-align: left;
+    }
+  }
+
+  .external-user-message-content {
+    flex-direction: row-reverse;
+
+    .user-name-message-wrapper {
+      text-align: left;
+      background-color: aliceblue;
+      p {
+        text-align: right;
+      }
+    }
+  }
+
+  .user-joined-container {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 20px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

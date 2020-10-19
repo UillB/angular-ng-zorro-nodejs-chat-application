@@ -1,0 +1,10 @@
+.user-message-area {
+  display: flex;
+  padding: 0 12px;
+
+  input {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 80%;
+  }
+}

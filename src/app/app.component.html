@@ -1,0 +1,54 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            *ngIf="user"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a>
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Angular Chat Application</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Application" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/chat">Chat</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <ul nz-menu nzMode="horizontal">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed" *ngIf="user">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+          </span>
+          <li nz-menu-item *ngIf="!user">
+            <a routerLink="/account/register"></a>
+            <i nz-icon nzType="audit" nzTheme="outline"></i>
+            Register
+          </li>
+          <li class="logout" nz-menu-item *ngIf="user">
+            <a (click)="onLogoutButtonClick()"></a>
+            <i nz-icon nzType="logout" nzTheme="outline"></i>
+            Logout
+          </li>
+        </ul>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
