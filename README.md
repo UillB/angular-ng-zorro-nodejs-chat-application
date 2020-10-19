@@ -1,27 +1,127 @@
+# Angular / NG-Zorro / NodeJS Chat Application
+
+Angular (UI) and NodeJS (backend) application that demostrates the power of Angular + RxJS + NG-Zorro + NodeJS combination.
+
+# Application main functional features
+* Full-fledged chat application
+* Ability to register the users 
+* Ability to create the Chat Rooms
+* Ability to join the Chat Room with many participatns
+* 'Real-time' chat with the list of all users in the chat
+* 'Real-time' chat with the list of all messages of the chat
+* All the chat messages are being saved even if user has left the chat and joined the same chat again
+* Ability to see all the Application chats
+
+# Application main UI technical features
+* <b>Asynchronous UI validations</b> while entering the UI data before submitting it to the backend
+* Example of <b>RxJS Subjects</b> usage - managing the state, communicating between different components without the special needs for using the application state-management libaries such as Redux / NgRX / ngrx-data etc
+* Basic <b>localStorage based authorization</b> with its own service
+* Shown an example of Angular <b>Guards</b> usage
+* Shown an example of Angular <b>custom pipes</b> usage in combination with <b>memoization</b> pattern (memo-decorator)
+* Shown an example of <b>Singleton</b> pattern usage with Angular UI application crucial components (such as app.component.ts)
+* Shown an example of <b>Observer</b> pattern usage by creating the global application service (event-bus.service.ts) which allows to subscribe to specified custom events and emit those events from any place across the entire application
+
+
+## Requirements
+* Git
+* Node v12 (12.13.1 is preffered)
+* NPM v6 (6.12.1 is preffered)
+* Angular CLI v10 (10.1.7 is preffered)
+# To run the app locally, please make sure that both UI and Backend works fine by following these steps:
+
 # Client
+```bash
+git clone https://github.com/UillB/angular-ng-zorro-nodejs-chat-application.git
+cd angular-ng-zorro-nodejs-chat-application
+(optional, if Angular CLI is not installed) - npm install -g @angular/cli 
+npm install
+ng serve --open
+```
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+# Server
+```bash
+git clone https://github.com/NetanelBasal/chat-be.git
+Make sure Node latest is installed.
+cd server
+npm run nodemon
+Make sure that server is up and running by navigating the http://localhost:3001/rooms
+```
 
-## Development server
+# Project structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+After creation, your UI project structure should like this:
 
-## Code scaffolding
+```
+angular-ng-zorro-nodejs-chat-application/
+  src/
+    app/
+        components/
+            account/
+            avatar/
+            chat/
+            page-not-found/
+        core/
+            helpers/
+            loader/
+            models/
+            services/
+            core-module.ts
+            ensure-module-loaded-once.guard.ts
+        shared/
+            ng-zorro/
+            pipes/
+            shared.module.ts
+        app.component.html
+        app.component.scss
+        app.component.spec.ts
+        app.component.ts
+        app.module.ts
+        app-routing.module.ts
+        icons-provider.module.ts
+    assets/
+    environments/
+    favicon.ico
+    index.html
+    main.ts
+    polyfills.ts
+    styles.scss
+    test.ts
+  .browserslistrc
+  .editorconfig
+  .gitignore
+  angular.json
+  karma.conf.js
+  package.json
+  package-lock.json
+  README.md
+  tsconfig.app.json
+  tsconfig.json
+  tsconfig.spec.json
+  tslint.json
+  e2e/
+  node_modules/  
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+# Available Scripts
+In the project directory you can run:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### `ng serve --open`
 
-## Running unit tests
+Runs the app in the development mode.<br>
+Open [http://localhost:4200](http://localhost:4200) to launch the application in the browser
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Languages & tools
 
-## Running end-to-end tests
+# HTML
+* HTML5
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# TypeScript
+* Angular (UI Framework)
+* RxJS (Built-in Angular JS library)
+* NG-Zorro (Angular based UI components library)
+* NodeJS (server with all crucial API Routes)
 
-## Further help
+# CSS
+* SCSS
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
